@@ -1,0 +1,49 @@
+1. Login API
+	Endpoint
+		URL: /api/v1/login
+		Method: POST
+	Body 
+        {
+            "email": "string",
+            "password": "string"
+        }
+    Response 
+        {
+            "status": "success",
+            "message": "Login successful",
+            "data": {
+                "token": "jwt-token-string"
+            }
+        }
+
+    success : 201 created
+    validation-error : 401 unauthorized
+   
+1. Signup API
+	Endpoint
+		URL: /api/v1/signup
+		Method: POST
+	Body 
+        {
+            "name": "string",
+            "number": "string",
+            "email": "string",
+            "enrollmentNo": "string",
+            "password": "string"
+        }
+    Response 
+        {
+            "status": "success",
+            "message": "User registered successfully",
+            "data": {
+                "userId": "unique-enrollmentNo",
+                "name": "string",
+                "email": "string"
+            }
+        }
+
+    success : 201 created
+    validation-error : 400 bad request
+    email-already-exists : 409 conflict
+
+
