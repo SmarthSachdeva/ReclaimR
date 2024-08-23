@@ -9,7 +9,7 @@
         }
     Response 
         {
-            "status": "success",
+                        "status": "success",
             "message": "Login successful",
             "data": {
                 "token": "jwt-token-string"
