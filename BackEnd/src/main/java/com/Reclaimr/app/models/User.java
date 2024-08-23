@@ -1,22 +1,17 @@
 package com.Reclaimr.app.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.GenerationType;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Entity
-@Table(name = "users")
+@Document(collection = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    int userId;
-    String name;
-    String email;
-    long phoneNumber;
-    String enrollmentNumber;
-    String password;
+    private String userId;  // Use String for MongoDB IDs
+    private String name;
+    private String email;
+    private long phoneNumber;
+    private String enrollmentNumber;
+    private String password;
 }
