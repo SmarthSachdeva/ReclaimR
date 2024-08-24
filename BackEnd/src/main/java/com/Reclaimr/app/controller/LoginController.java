@@ -33,8 +33,23 @@ public class LoginController {
             return new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
         }
 
-        userLoginService.login(loginRequest);
+        // making the login request
 
+        String result  = userLoginService.login(loginRequest);
+        if(result.equals("User needs to sign up")){
+            // Entered email not found
+            ApiResponse errorResponse = new ApiResponse(HttpStatus.NOT_FOUND , result , null);
+            return new ResponseEntity<>(errorResponse , HttpStatus.BAD_REQUEST);
+        }
+        if(result.equals("Login Failure")){
+            // Credentials Mismatch
+            ApiResponse errorResponse = new ApiResponse(HttpStatus.NOT_FOUND , result , null);
+            return new ResponseEntity<>(errorResponse , HttpStatus.BAD_REQUEST);
+        }
+
+        // Login Success!
+        ApiResponse response = new ApiResponse(HttpStatus.CREATED , result , loginRequest);
+        return new ResponseEntity<>(response , HttpStatus.BAD_REQUEST);
     }
 
 
