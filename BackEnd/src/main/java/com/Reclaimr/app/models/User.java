@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "users")
 public class User {
     @Id
-    private String userId;  // Use String for MongoDB IDs
+    private String userId;
     private String name;
     @Indexed(unique = true)
     private String email;

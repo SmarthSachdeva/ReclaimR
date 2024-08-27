@@ -7,11 +7,13 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
 @SpringBootApplication
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class , SecurityAutoConfiguration.class})
+@EnableAutoConfiguration(exclude={SecurityAutoConfiguration.class})
 public class ReclaimRAppApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(ReclaimRAppApplication.class, args);
+
 	}
 
 }
